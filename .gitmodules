@@ -1,0 +1,6 @@
+[submodule "account/codemao-contract"]
+	path = account/codemao-contract
+	url = https://github.com/sunshinemine/contract-test.git
+[submodule "order/codemao-contract"]
+	path = order/codemao-contract
+	url = https://github.com/sunshinemine/contract-test.git

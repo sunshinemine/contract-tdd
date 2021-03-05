@@ -1,4 +1,4 @@
-package cn.codemao.codemaster.account;
+package cn.codemao.codemaster.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableDiscoveryClient
 @EnableEurekaClient
 @SpringBootApplication
-public class AccountApplication {
+public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AccountApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
 
 }
