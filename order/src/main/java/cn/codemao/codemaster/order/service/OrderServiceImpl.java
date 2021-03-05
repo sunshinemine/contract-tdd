@@ -3,7 +3,6 @@ package cn.codemao.codemaster.order.service;
 import cn.codemao.codemaster.common.entity.Order;
 import cn.codemao.codemaster.order.dao.OrderDao;
 import cn.codemao.codemaster.order.feign.AccountApi;
-import cn.codemao.codemaster.order.feign.StorageApi;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +16,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderDao orderDao;
-    @Autowired
-    private StorageApi storageApi;
+
     @Autowired
     private AccountApi accountApi;
 
@@ -38,14 +36,10 @@ public class OrderServiceImpl implements OrderService {
         //本地方法
         orderDao.create(order);
 
-        //远程方法 扣减库存
-        storageApi.decrease(order.getProductId(), order.getCount());
-
         //远程方法 扣减账户余额
         LOGGER.info("------->扣减账户开始order中");
         accountApi.decrease(order.getUserId(), order.getMoney(), order.getProductId());
         LOGGER.info("------->扣减账户结束order中");
-        int i = 1 / 0;
         LOGGER.info("------->交易结束");
     }
 

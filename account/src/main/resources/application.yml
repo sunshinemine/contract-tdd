@@ -26,7 +26,7 @@ server:
   port: 8183
 spring:
   application:
-    name: account-server
+    name: account
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/seata_account?serverTimezone=Asia/Shanghai

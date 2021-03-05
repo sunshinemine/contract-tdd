@@ -2,7 +2,9 @@ package cn.codemao.codemaster.account.dao;
 
 import java.math.BigDecimal;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AccountDao {
 
     /**
