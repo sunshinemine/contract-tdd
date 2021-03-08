@@ -1,0 +1,1 @@
+INSERT INTO `order` (`id`,`user_id`,`product_id`,`count`,`money`,`status`)VALUES(1, 1, 2, 2, 100, 0);

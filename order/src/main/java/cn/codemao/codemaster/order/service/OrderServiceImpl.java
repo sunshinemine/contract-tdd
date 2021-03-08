@@ -56,4 +56,8 @@ public class OrderServiceImpl implements OrderService {
     public Order detail(Order order) {
         return orderDao.detail(order);
     }
+
+    public int test(int a) {
+        return a + 1;
+    }
 }

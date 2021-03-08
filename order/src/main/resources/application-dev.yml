@@ -28,16 +28,8 @@ spring:
   application:
     name: order
   datasource:
-    hikari:
-      connection-test-query: select 1
-      maximum-pool-size: 30
-      minimum-idle: 10
-      read-only: false
-      connection-timeout: 30000
-      validation-timeout: 3000
-      max-lifetime: 30000
-      login-timeout: 5
-      idle-timeout: 30000
-  flyway:
-    enabled: false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_order?serverTimezone=Asia/Shanghai
+    username: root
+    password:
 
