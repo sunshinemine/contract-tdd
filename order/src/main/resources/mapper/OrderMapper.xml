@@ -20,8 +20,8 @@
     </sql>
 
     <insert id="create">
-     INSERT INTO `order` (`id`,`user_id`,`product_id`,`count`,`money`,`status`)
-      VALUES(NULL, #{userId}, #{productId}, #{count}, #{money},0);
+     INSERT INTO `order` (`user_id`,`product_id`,`count`,`money`,`status`)
+      VALUES(#{userId}, #{productId}, #{count}, #{money},0);
     </insert>
 
     <update id="update">

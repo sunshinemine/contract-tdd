@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 
 @FlywayTest
 @ActiveProfiles("test")
-@SpringBootTest(classes = OrderApplication.class)
+@SpringBootTest(classes = OrderApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 @TestExecutionListeners({
         DependencyInjectionTestExecutionListener.class,
