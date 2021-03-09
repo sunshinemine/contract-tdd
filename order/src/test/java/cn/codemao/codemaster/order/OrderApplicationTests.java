@@ -5,7 +5,6 @@ import cn.codemao.codemaster.order.dao.OrderDao;
 import cn.codemao.codemaster.order.service.OrderServiceImpl;
 import cn.codemao.codemaster.order.test.TruncateDataListener;
 import org.flywaydb.test.FlywayTestExecutionListener;
-import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +20,6 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 
 import static org.mockito.Mockito.when;
 
-@FlywayTest
 @ActiveProfiles("test")
 @SpringBootTest(classes = OrderApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)

@@ -15,8 +15,7 @@ feign:
         readTimeout: 60000
 logging:
   level:
-    io:
-      seata: debug
+    cn.codemao.codemaster.order: debug
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   typeAliasesPackage: cn.codemao.codemaster.order.entity
@@ -38,6 +37,4 @@ spring:
       max-lifetime: 30000
       login-timeout: 5
       idle-timeout: 30000
-  flyway:
-    enabled: true
 

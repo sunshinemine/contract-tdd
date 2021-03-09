@@ -14,8 +14,7 @@ feign:
 
 logging:
   level:
-    io:
-      seata: debug
+    cn.codemao.codemaster.account: debug
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   typeAliasesPackage: cn.codemao.codemaster.account.entity
