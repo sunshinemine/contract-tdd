@@ -5,12 +5,12 @@ import cn.codemao.codemaster.order.dao.OrderDao;
 import cn.codemao.codemaster.order.service.OrderServiceImpl;
 import cn.codemao.codemaster.order.test.TruncateDataListener;
 import org.flywaydb.test.FlywayTestExecutionListener;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.jdbc.Sql;
@@ -18,6 +18,7 @@ import org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ActiveProfiles("test")
@@ -31,21 +32,25 @@ import static org.mockito.Mockito.when;
 })
 public class OrderApplicationTests {
 
-    @SpyBean
+    @Autowired
     private OrderServiceImpl orderService;
 
     @Autowired
-    private OrderDao orderDao;
+    private RedisTemplate<String, Object> objectRedisTemplate;
 
     @Test
-    public void contextLoads() {
-        when(orderService.test(1)).thenReturn(3);
+    public void mockDao() {
+        Order order = new Order();
+        order.setId(1L);
+        orderService.detail(order);
+        OrderDao mock = Mockito.spy(OrderDao.class);
+        when(mock.detail(any())).thenReturn(any());
     }
 
     @Test
-    public void really() {
-        int test = orderService.test(2);
-        Assert.assertEquals(3, test);
+    public void redis() {
+        objectRedisTemplate.opsForValue().set("test", 21);
+        System.out.println("test:" + objectRedisTemplate.opsForValue().get("test"));
     }
 
     @Test
@@ -53,7 +58,7 @@ public class OrderApplicationTests {
     public void testDB() {
         Order order = new Order();
         order.setId(1L);
-        orderDao.detail(order);
+        orderService.detail(order);
     }
 
 }
